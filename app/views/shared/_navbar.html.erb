@@ -1,0 +1,116 @@
+<div class="nav-wrapper navbarWhite">
+  <nav id="menuBar" class="navbar navbar-default lightHeader navbar-static-top" role="navigation">
+    <div class="container">
+
+      <!-- Brand and toggle get grouped for better mobile display -->
+      <div class="navbar-header stickness">
+        <!-- <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button> -->
+        <a class="navbar-brand hidden-sm hidden-xs" href="#"><%= image_tag("konfam-logo.png") %></a>
+
+        <a class="navbar-brand hidden-md hidden-lg hidden-xs" href="#"><%= image_tag("logo-2.png") %></a>
+
+        <a class="navbar-brand" href="#">
+          <ul class="list-inline no-border mt25 hidden-md text-center hidden-lg hidden-sm">
+
+            <li>
+              <%= link_to all_gigs_path do %>
+                <i class="iconnav material-icons md-24">work</i>
+              <% end %>
+            </li>
+
+
+
+            <li>
+              <%= link_to all_services_path do %>
+                <i class="iconnav material-icons md-24">dvr</i>
+              <% end %>
+            </li>
+
+            <li>
+              <%= link_to konfam_market_path do %>
+                <i class="iconnav material-icons md-24">store</i>
+              <% end %>
+            </li>
+
+            <li>
+              <%= link_to root_path do %>
+                <i class="iconnav material-icons md-24">business</i>
+              <% end %>
+            </li>
+            <li>
+              <%= link_to user_path(current_user.id) do %>
+                <i class="iconnav material-icons md-24">account_circle</i>
+              <% end %>
+            </li>
+          </ul>
+        </a>
+
+      </div>
+
+      <!-- Collect the nav links, forms, and other content for toggling -->
+      <div class="collapse navbar-collapse navbar-ex1-collapse">
+          <ul class="nav navbar-nav navbar-right mr0">
+
+            <li>
+              <%= link_to all_gigs_path do %>
+                <i class="iconnav material-icons md-36">work</i>
+              <% end %>
+            </li>
+            <li>
+              <%= link_to all_services_path do %>
+                <i class="iconnav material-icons md-36">dvr</i>
+              <% end %>
+            </li>
+            <li>
+              <%= link_to konfam_market_path do %>
+                <i class="iconnav material-icons md-36">store</i>
+              <% end %>
+            </li>
+            <li>
+              <%= link_to root_path do %>
+                <i class="iconnav material-icons md-36">business</i>
+              <% end %>
+            </li>
+
+            <!-- <li class=" dropdown singleDrop">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">FAQ <i class="fa fa-angle-down" aria-hidden="true"></i></a>
+              <ul class="dropdown-menu dropdown-menu-left">
+                  <li><a href="#">Pricing</a></li>
+                  <li><a href="#">Payment</a></li>
+                  <li><a href="#">How It Works</a></li>
+              </ul>
+            </li>
+            <li class=""><a href="#">Terms and Conditions</a></li> -->
+            <% if (!user_signed_in?) %>
+              <li><%= link_to "Login", new_user_session_path %></li>
+              <li><%= link_to "Signup", new_user_registration_path %></li>
+            <% else %>
+              <li class="active dropdown singleDrop mb10">
+                <a href="javascript:void(0)" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                  <%= image_tag avatar_url(current_user), class: "img-circle avatar-small" %>&nbsp;
+                  <!-- <%=current_user.fullname %> -->
+                  <i class="fa fa-angle-down" aria-hidden="true"></i></a>
+                <ul class="dropdown-menu dropdown-menu-right">
+                    <li class="text-center"><%= image_tag avatar_url(current_user), class: "img-circle avatar-small" %>&nbsp;
+                      <%=current_user.fullname %></li><hr>
+                    <li><%= link_to "My Profile", user_path(current_user.id) %></li>
+                    <li><a href="#">Add Listing</a></li>
+                    <li><a href="#">Edit Listing</a></li>
+                    <li><a href="#">My Listings</a></li>
+                    <li role="seperator" class="divider"></li>
+                    <li><%= link_to "Edit Profile", edit_user_registration_path %></li>
+                    <li><%= link_to "Log Out", destroy_user_session_path, method: :delete %></li>
+
+                </ul>
+              </li>
+            <% end %>
+          </ul>
+      </div>
+    </div>
+  </nav>
+</div>

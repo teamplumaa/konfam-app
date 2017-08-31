@@ -1,0 +1,81 @@
+<!-- CATEGORY LIST SECTION -->
+<section class="clearfix categoryGrid">
+	<div class="row">
+    <div class="col-sm-4 col-xs-12">
+
+			<div class="sidebarInner">
+				<ul class="sidebar-link">
+          <li class="sidebar-item">
+            <%= link_to "Your Items", items_path, class: "sidebar-link" %>
+          </li>
+					<li class="sidebar-item">
+            <%= link_to "Your Item Orders", your_orders_path, class: "sidebar-link" %>
+          </li>
+          <li class="sidebar-item">
+            <%= link_to "Your Service Offers", your_offers_path, class: "sidebar-link active" %>
+          </li>
+          <li class="sidebar-item">
+            <%= link_to "Your Service Requests", your_requests_path, class: "sidebar-link" %>
+          </li>
+					<li class="sidebar-item">
+            <%= link_to "Your Item Purchases", your_purchases_path, class: "sidebar-link" %>
+          </li>
+				</ul>
+      </div>
+      <div class="panel panel-default panel-card">
+				<div class="panel-heading">
+					Listings <span class="label label-primary">Monthly</span>
+				</div>
+				<div class="panel-body">
+					<h2>71,503</h2>
+					<p>Compare to last month <span class="resultInfo resultUp">10% <i class="fa fa-level-up" aria-hidden="true"></i></span></p>
+				</div>
+			</div>
+
+		</div>
+		<div class="col-sm-8 col-xs-12">
+			<div class="resultBar barSpaceAdjust">
+				<h2>Your Service Offers</h2>
+			</div>
+
+
+
+			<!-- LISTINGS SECTION -->
+			<div class="row">
+				<% @services.each do |service| %>
+          <% service.bookings.each do |booking| %>
+  					<div class="col-sm-6 col-xs-12">
+  						<div class="thingsBox thinsSpace">
+  							<div class="thingsImage">
+  								<%=link_to service_path(booking.service) do %>
+  									<%= image_tag booking.service.cover_photo(:original), class:"image-250 img-responsive" %>
+  								<% end %>
+  								<div class="thingsMask">
+
+  									<p>Date Booked: <%= booking.booking_date.strftime('%v') %></p>
+  									<hr>
+  									<h6>Amount Offered: N<%= booking.offer %></h6>
+										<h6>Total(incl. fees): N<%= booking.total %></h6>
+  								</div>
+  							</div>
+  							<div class="thingsCaption">
+  								<ul class="list-inline captionItem text-center">
+  									<li>
+  										<%= image_tag avatar_url(booking.user), class: "img-circle avatar-small" %>
+  										<%= link_to user_path(booking.user) do %>
+  											<%= booking.user.fullname %>
+  										<% end %>
+  									</li><br>
+  								</ul>
+  							</div>
+  						</div>
+  					</div>
+          <% end %>
+				<% end %>
+			</div>
+
+
+		</div>
+
+	</div>
+</section>

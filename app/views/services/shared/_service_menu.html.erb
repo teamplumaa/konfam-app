@@ -1,0 +1,42 @@
+<ul class="sidebarInner sidebar-link">
+  <li class="sidebar-item">
+    <%= link_to "Basic Info", listing_service_path, class: "sidebar-link active" %>
+    <span class="pull-right"><i class="konfammer fa fa-check"></i></span>
+  </li>
+
+  <li class="sidebar-item">
+    <%= link_to "Description", description_service_path, class: "sidebar-link active" %>
+    <% if !@service.title.blank? %>
+      <span class="pull-right"><i class="konfammer fa fa-check"></i></span>
+    <% end %>
+  </li>
+
+  <li class="sidebar-item">
+    <%= link_to "Location Details", details_service_path, class: "sidebar-link active" %>
+    <% if !@service.address.blank? %>
+      <span class="pull-right"><i class="konfammer fa fa-check"></i></span>
+    <% end %>
+  </li>
+
+  <li class="sidebar-item">
+    <%= link_to "Pricing", pricing_service_path, class: "sidebar-link active" %>
+    <% if !@service.pricing.blank? %>
+      <span class="pull-right"><i class="konfammer fa fa-check"></i></span>
+    <% end %>
+  </li>
+
+  <li class="sidebar-item">
+    <%= link_to "Service Gallery", photo_uploads_service_path, class: "sidebar-link active" %>
+    <% if !@service.service_photos.blank? %>
+      <span id="service_photo_check" class="pull-right"><i class="konfammer fa fa-check"></i></span>
+    <% end %>
+  </li>
+</ul>
+<hr/>
+
+<% is_ready = !@service.active && !@service.pricing.blank? && !@service.service_photos.blank? && !@service.address.blank? && !@service.title.blank? %>
+
+<%= form_for @service do |f| %>
+  <%= f.hidden_field :active, value: true %>
+  <%= f.submit "Publish", id: "publish_button2", class: "btn btn-primary btn-block", disabled: !is_ready %>
+<% end %>

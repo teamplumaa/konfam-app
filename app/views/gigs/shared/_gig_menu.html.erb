@@ -1,0 +1,74 @@
+<ul class="sidebarInner sidebar-link hidden-sm hidden-xs">
+  <li class="sidebar-item">
+    <%= link_to "Basic Info", listing_gig_path, class: "sidebar-link active" %>
+    <span class="pull-right"><i class="konfammer fa fa-check"></i></span>
+  </li>
+
+  <li class="sidebar-item">
+    <%= link_to "Description", description_gig_path, class: "sidebar-link active" %>
+    <% if !@gig.title.blank? %>
+      <span class="pull-right"><i class="konfammer fa fa-check"></i></span>
+    <% end %>
+  </li>
+
+  <li class="sidebar-item">
+    <%= link_to "Location Details", logistics_gig_path, class: "sidebar-link active" %>
+    <% if !@gig.location.blank? %>
+      <span class="pull-right"><i class="konfammer fa fa-check"></i></span>
+    <% end %>
+  </li>
+
+  <li class="sidebar-item">
+    <%= link_to "Compensation", compensation_gig_path, class: "sidebar-link active" %>
+    <% if !@gig.compensation.blank? %>
+      <span class="pull-right"><i class="konfammer fa fa-check"></i></span>
+    <% end %>
+  </li>
+</ul>
+<hr class="hidden-sm hidden-xs">
+
+<% is_ready = !@gig.active && !@gig.compensation.blank? && !@gig.location.blank? && !@gig.title.blank? %>
+
+<%= form_for @gig do |f| %>
+  <%= f.hidden_field :active, value: true %>
+  <%= f.submit "Publish", id: "publish_button", class: "btn btn-primary btn-block", disabled: !is_ready %>
+<% end %>
+<br>
+
+<ul class="sidebarInner sidebar-link list-inline text-center no-border hidden-md hidden-lg">
+  <hr/>
+  <li class="sidebar-item">
+    <%= link_to listing_gig_path, class: "sidebar-link active" do %>
+      <li><i class="fa fa-info-circle fa-2x" aria-hidden="true"></i></li>
+    <% end %>
+    <span><i class="konfammer fa fa-check"></i></span>
+  </li>
+
+  <li class="sidebar-item">
+    <%= link_to description_gig_path, class: "sidebar-link active" do %>
+      <li><i class="fa fa-list fa-2x" aria-hidden="true"></i></li>
+    <% end %>
+    <% if !@gig.title.blank? %>
+      <span><i class="konfammer fa fa-check"></i></span>
+    <% end %>
+  </li>
+
+  <li class="sidebar-item">
+    <%= link_to logistics_gig_path, class: "sidebar-link active" do %>
+      <li><i class="fa fa-map-marker fa-2x" aria-hidden="true"></i></li>
+    <% end %>
+    <% if !@gig.location.blank? %>
+      <span><i class="konfammer fa fa-check"></i></span>
+    <% end %>
+  </li>
+
+  <li class="sidebar-item">
+    <%= link_to compensation_gig_path, class: "sidebar-link active" do %>
+      <li><i class="fa fa-money fa-2x" aria-hidden="true"></i></li>
+    <% end %>
+    <% if !@gig.compensation.blank? %>
+      <span><i class="konfammer fa fa-check"></i></span>
+    <% end %>
+  </li>
+  <hr>
+</ul>

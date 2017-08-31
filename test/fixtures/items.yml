@@ -1,0 +1,21 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  category_type: MyString
+  item_type: MyString
+  item_name: MyString
+  summary: MyText
+  quantity: 1
+  price: 1
+  active: false
+  user: one
+
+two:
+  category_type: MyString
+  item_type: MyString
+  item_name: MyString
+  summary: MyText
+  quantity: 1
+  price: 1
+  active: false
+  user: two

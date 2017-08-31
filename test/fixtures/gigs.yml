@@ -1,0 +1,23 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  category: MyString
+  title: MyString
+  description: MyString
+  location: MyString
+  date: 2017-08-25
+  time: 2017-08-25 19:00:17
+  personnel_count: 1
+  compensation: 1
+  additional_details: MyString
+
+two:
+  category: MyString
+  title: MyString
+  description: MyString
+  location: MyString
+  date: 2017-08-25
+  time: 2017-08-25 19:00:17
+  personnel_count: 1
+  compensation: 1
+  additional_details: MyString

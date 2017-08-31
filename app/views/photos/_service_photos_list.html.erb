@@ -1,0 +1,24 @@
+<% if @service_photos.count > 0 %>
+
+  <br>
+
+  <div class="row">
+    <% @service_photos.each do |service_photo| %>
+    <div class="col-md-4">
+      <div class="panel panel-default">
+          <div class="panel-body">
+            <span class="pull-right">
+              <%= link_to service_service_photo_path(service_photo.service_id, service_photo), remote: true, method: :delete, data: {confirm: "Are you sure"} do %>
+                <i class="fa fa-trash-o" aria-hidden="true"></i>
+              <% end %>
+            </span>
+
+            <%= image_tag service_photo.image.url(), class:"panel-imager text-center" %>
+
+          </div>
+      </div>
+    </div>
+
+    <% end %>
+  </div>
+<% end %>

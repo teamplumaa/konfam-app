@@ -1,0 +1,28 @@
+<%= form_for([@item, @item.item_purchases.new]) do |f| %>
+  <%= f.text_field :quantity, placehoder: "Enter the quantity you need", class:"form-group form-control" %>
+  <%= f.submit "Purchase", class: "btn btn-primary btn-block" %>
+
+<% end %>
+
+<!-- <div id="preview">
+  <table>
+    <tbody>
+      <tr>
+        <td>Price</td>
+        <td class="text-right"><% @item.price %></td>
+      </tr>
+      <tr>
+        <td>X Quantity</td>
+        <td class="text-right">20%</td>
+      </tr>
+      <tr>
+        <td>+ Service Charge</td>
+        <td class="text-right">20%</td>
+      </tr>
+      <tr>
+        <td>Total</td>
+        <td class="text-right">2</td>
+      </tr>
+    </tbody>
+  </table>
+</div> -->

@@ -1,0 +1,26 @@
+<section class="clearfix">
+  <div class="row">
+    <% @gigs.each do |gig| %>
+      <div class="col-md-6 col-xs-12">
+        <div class="panel panel-default panel-card">
+          <div class="panel-heading">
+            N<%= number_with_delimiter(gig.compensation, :delimiter => ',') %> <span class="label label-gigs">Due: <%= gig.date.strftime('%v') %></span>
+          </div>
+          <div class="panel-body panel-less">
+            <h5 class="panel-gig"><%=link_to gig.title, gig %></h5>
+          </div>
+          <div class="panel-footer">
+            <ul class="list-inline captionItem text-center">
+              <li>
+                <%= image_tag avatar_url(gig.user), class: "img-circle avatar-small" %>
+                <%=link_to user_path(gig.user) do %>
+                  <%= gig.user.fullname %>
+                <% end %>
+              </li><br>
+            </ul>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</section>

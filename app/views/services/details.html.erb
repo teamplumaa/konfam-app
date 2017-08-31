@@ -1,0 +1,31 @@
+<section>
+  <div class="row">
+    <div class="col-md-3">
+      <%= render 'services/shared/service_menu' %>
+    </div>
+    <div class="col-md-9">
+            <%= form_for @service do |f| %>
+              <div class="dashboardBoxBg mb30 no-border">
+                <div class="profileIntro paraMargin">
+                  <p>Tell us where people can find your service.</p>
+                  <div class="row">
+                    <div class="form-group col-sm-12">
+                      <label for="listingCategory">Address</label>
+                      <%= f.text_area :address, :maxlength => 75, placeholder: "Enter your address", required: true, class: "form-control" %>
+                    </div>
+                    <div class="form-group col-sm-12">
+                      <label for="listingCategory">City</label>
+                      <%= f.text_field :city, placeholder: "City", required: true, class: "form-control" %>
+                    </div>
+                    <div class="text-center actions">
+                      <%= button_tag type: 'submit', class: "btn btn-primary-alt btn-fully-round" do %>
+                         <i class="fa fa-save"></i>
+                      <% end %>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            <% end %>
+    </div>
+  </div>
+</section>

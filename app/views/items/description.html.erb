@@ -1,0 +1,57 @@
+<!-- <section>
+  <div class="row">
+    <div class="col-md-3">
+      <%= render 'items/shared/item_menu' %>
+    </div>
+    <div class="col-md-9">
+
+            <%= form_for @item do |f| %>
+              <div class="dashboardBoxBg mb30 no-border">
+                <div class="profileIntro paraMargin">
+                  <p>Give a simple name to describe your item. (Note that there is a limit of 50 characters for an item's name)</p>
+                  <div class="row">
+                    <div class="form-group col-sm-12">
+                      <%= f.text_field :item_name, :maxlength => 50, placeholder: "Enter your item's name", required: true, class: "form-control" %>
+                    </div>
+
+                    <div class="text-center actions">
+                      <%= f.submit "Save Description", class: "btn btn-primary"%>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            <% end %>
+
+    </div>
+  </div>
+</section> -->
+
+
+
+<section>
+  <div class="row">
+    <div class="col-md-3">
+      <%= render 'items/shared/item_menu' %>
+    </div>
+    <div class="col-md-9">
+
+            <%= form_for @item do |f| %>
+             <div class="dashboardBoxBg mt30 mb30 no-border">
+               <p class="profileIntro paraMargin">Give a simple name to describe your item. (Note that there is a limit of 50 characters for an item's name)</p>
+               <div class="row">
+                 <div class="form-group col-sm-12">
+                   <%= f.text_field :item_name, :maxlength => 50, placeholder: "Enter your item's name", required: true, class: "form-control" %>
+                 </div>
+
+                 <div class="actions">
+                   <%= button_tag type: 'submit', class: "btn btn-primary-alt btn-fully-round pull-right" do %>
+                      <i class="fa fa-save"></i>
+                   <% end %>
+                 </div>
+               </div>
+             </div>
+            <% end %>
+
+    </div>
+  </div>
+</section>

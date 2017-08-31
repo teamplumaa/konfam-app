@@ -1,0 +1,130 @@
+<section>
+  <div class="row">
+
+      <div class="col-md-4 col-sm-5 col-xs-12">
+    			<div class="dashboardBoxBg no-border">
+    				<div class="profileImage">
+    					<%= image_tag avatar_url(@user), class: "img-circle avatar-full" %>
+
+              <% if @user == current_user %>
+      					<div class="row user-settings hidden-sm hidden-md hidden-lg">
+                  <ul class="list-inline text-center">
+                    <li>
+                      <%= link_to edit_user_registration_path do %>
+                        <i class="material-icons">help_outline</i>
+                      <% end %>
+                    </li>
+                    <li>
+                      <%= link_to edit_user_registration_path do %>
+                        <i class="material-icons">settings</i>
+                      <% end %>
+                    </li>
+                    <li>
+                      <%= link_to destroy_user_session_path, method: :delete do %>
+                        <i class="material-icons md-24"><i class="material-icons">power_settings_new</i></i>
+                      <% end %>
+                    </li>
+                  </ul>
+      					</div>
+              <% end %>
+
+              <p><%= @user.fullname %></p>
+              <% if @user.confirmation_token %>
+    					  <h6>Email: <span><i class="fa fa-check-circle o"></i></span></h6>
+              <% end %>
+              <% if @user.provider %>
+              <h6>Facebook <span><i class="fa fa-check-circle o"></i></span></h6>
+              <% end %>
+              <h6>Phone Number: <span><i class="fa fa-check-circle o"></i></span></h6>
+
+    				</div>
+    				<div class="profileUserInfo bt bb profileName">
+              <h6><%= @user.description %></h6>
+    				</div>
+    			</div>
+    	</div>
+
+      <div class="col-md-8 col-sm-7 col-xs-12">
+        <ul class="nav nav-pills bt bb">
+          <li class="active"><a data-toggle="pill" href="#gigs">Gigs (<%= @gigs.length %>)</a></li>
+          <li><a data-toggle="pill" href="#services">Services (<%= @services.length %>)</a></li>
+          <li><a data-toggle="pill" href="#items">Items (<%= @items.length %>)</a></li>
+          <li><a data-toggle="pill" href="#reviews">Reviews</a></li>
+        </ul>
+
+        <div class="tab-content">
+          <div id="gigs" class="tab-pane fade in active">
+            <div class="row">
+              <br>
+              <% @gigs.each do |gig| %>
+                <div class="col-md-6 col-xs-12">
+                  <div class="panel panel-default panel-card">
+                    <div class="panel-heading">
+                      N<%= number_with_delimiter(gig.compensation, :delimiter => ',') %> <span class="label label-gigs">Due: <%= gig.date.strftime('%v') %></span>
+                    </div>
+                    <div class="panel-body">
+                      <h5 class="panel-gig"><%=link_to gig.title, gig %></h5>
+                    </div>
+                  </div>
+                </div>
+
+
+              <% end %>
+            </div>
+
+
+          </div>
+          <div id="services" class="tab-pane fade">
+            <% @services.each do |service| %>
+    					<div class="col-sm-6 col-xs-12">
+    						<div class="thingsBox thinsSpace">
+    							<div class="thingsImage">
+    								<%=link_to service_path(service) do %>
+    									<%= image_tag service.cover_photo(:original), class:"image-200 img-responsive" %>
+    								<% end %>
+    								<div class="thingsMask">
+
+    									<p><%=link_to service.title, service %></p>
+    									<hr>
+    									<h6>Location: N<%= service.address %></h6>
+  										<h6>Price: N<%= service.pricing %></h6>
+    								</div>
+    							</div>
+    						</div>
+    					</div>
+    				<% end %>
+          </div>
+          <div id="items" class="tab-pane fade">
+            <!-- <div class="col-xs-12">
+              <ul class="list-inline listingImage">
+                <% @items.each do |item| %>
+                  <%=link_to item_path(item) do %>
+                    <%= image_tag item.cover_photo(:original), class:"image-150 img-responsive" %>
+                  <% end %>
+                <% end %>
+              </ul>
+            </div> -->
+            <div class="wrap">
+              <% @items.each do |item| %>
+              <div class="box">
+                <div class="boxInner">
+                  <%=link_to item_path(item) do %>
+                    <%= image_tag item.cover_photo(:original) %>
+                  <% end %>
+                </div>
+              </div>
+              <% end %>
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+
+
+
+
+  </div>
+</section>

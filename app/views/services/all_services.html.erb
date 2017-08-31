@@ -1,0 +1,31 @@
+<section class="clearfix">
+  <div class="row">
+    <% @services.each do |service| %>
+        <div class="col-sm-6 col-xs-12">
+          <div class="thingsBox thinsSpace">
+            <div class="thingsImage">
+              <%=link_to service_path(service) do %>
+                <%= image_tag service.cover_photo(:original), class:"image-200 img-responsive" %>
+              <% end %>
+              <div class="thingsMask">
+
+                <h5 class="service"><%=link_to service.title, service %></h5>
+                <hr>
+                <h6>Location: N<%= service.city %></h6>
+              </div>
+            </div>
+            <div class="thingsCaption">
+              <ul class="list-inline captionItem text-center">
+                <li>
+                  <%= image_tag avatar_url(service.user), class: "img-circle avatar-small" %>
+                  <%= link_to user_path(service.user) do %>
+                    <%= service.user.fullname %>
+                  <% end %>
+                </li><br>
+              </ul>
+            </div>
+          </div>
+        </div>
+    <% end %>
+  </div>
+</section>

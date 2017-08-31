@@ -1,0 +1,136 @@
+<!-- LISTINGS DETAILS TITLE SECTION -->
+<section class="clearfix paddingAdjustBottom">
+	<div class="container row">
+		<div class="col-xs-12 hidden-sm hidden-xs">
+			<div class="listingTitleArea">
+				<div class="row text-center"><a href="#" class="label label-danger"><%= @service.service_category %></a>
+				<h3><%= @service.title %></h3>
+				<p class="konfammer">N<%= @service.pricing %></p>
+				<div class="listingReview">
+					<span><%= image_tag avatar_url(@service.user), class: "img-circle avatar-small" %> <%= @service.user.fullname %></span>
+				</div>
+			</div>
+		</div>
+		<div class="col-xs-12 hidden-lg hidden-md">
+			<div class="listingTitleArea text-center">
+				<div class="row">
+          <a href="#" class="label label-danger"><%= @service.service_category %></a>
+        </div>
+				<h3><%= @service.title %></h3>
+				<p class="konfammer">N<%= @service.pricing %></p>
+				<div class="listingReview">
+					<span><%= image_tag avatar_url(@service.user), class: "img-circle avatar-small" %> <%= @service.user.fullname %></span>
+				</div>
+			</div>
+		</div>
+	</div>
+
+</section>
+
+<!-- LISTINGS DETAILS IMAGE SECTION -->
+<section class="clearfix paddingAdjustTopBottom hidden-sm hidden-xs">
+	<ul class="list-inline listingImage">
+
+		<% @service_photos.each do |service_photo| %>
+			<li>
+				<%= image_tag service_photo.image.url(), class: "img-responsive image-250" %>
+			</li>
+		<% end %>
+	</ul>
+</section>
+<section class="clearfix paddingAdjustTopBottom hidden-lg hidden-md">
+	<div id="myCarousel" class="carousel slide" data-ride="carousel">
+  	<!-- Indicators -->
+	  <ol class="carousel-indicators">
+			<% @service_photos.each do |service_photo| %>
+				<li data-target="#myCarousel" data-slide-to="<%= service_photo.id %>"></li>
+				</li>
+			<% end %>
+	  </ol>
+
+	  <!-- Wrapper for slides -->
+	  <div class="carousel-inner">
+
+
+			<% @service_photos.each do |service_photo| %>
+				<div class="service <%= 'active' if service_photo.id == @service_photos[0].id %>">
+				 <%= image_tag service_photo.image.url(), class: "img-responsive image-350" %>
+			 	</div>
+			<% end %>
+
+	  </div>
+
+	  <!-- Left and right controls -->
+	  <a class="left carousel-control" href="#myCarousel" data-slide="prev">
+	    <span class="glyphicon glyphicon-chevron-left"></span>
+	    <span class="sr-only">Previous</span>
+	  </a>
+	  <a class="right carousel-control" href="#myCarousel" data-slide="next">
+	    <span class="glyphicon glyphicon-chevron-right"></span>
+	    <span class="sr-only">Next</span>
+	  </a>
+	</div>
+</section>
+
+
+
+
+
+<!-- LISTINGS DETAILS INFO SECTION -->
+<section class="clearfix paddingAdjustTop">
+	<div class="container">
+		<div class="row">
+			<div class="col-sm-8 col-xs-12">
+				<div class="listDetailsInfo">
+					<div class="detailsInfoBox">
+						<h5 class="hidden-xs">What We Do</h5>
+            <h5 class="text-center hidden-sm hidden-md hidden-lg">
+              <i class="fa fa-info-circle" aria-hidden="true"></i> What We Do
+            </h5>
+						<p> <%= @service.description %></p>
+					</div>
+          <hr>
+				</div>
+			</div>
+			<div class="col-sm-4 col-xs-12">
+				<div class="listSidebar">
+					<h5 class="hidden-xs">Our Details</h5>
+          <h5 class="text-center hidden-sm hidden-md hidden-lg">
+            <i class="fa fa-asterisk" aria-hidden="true"></i> Our Details
+          </h5>
+					<div class="contactInfo">
+						<ul class="list-unstyled list-address">
+							<li>
+                <i class="fa fa-money" aria-hidden="true"></i>
+								<span class="pull-right">N<%= @service.pricing %></span><br>
+							</li>
+							<li>
+								<i class="fa fa-map-marker" aria-hidden="true"></i>
+								<span class="pull-right"><%= @service.address %></span><br>
+							</li>
+							<li>
+								<i class="fa fa-university" aria-hidden="true"></i>
+								<span class="pull-right"><%= @service.city %></span><br>
+							</li>
+							<li>
+								<i class="fa fa-user-circle" aria-hidden="true"></i>
+								<span class="pull-right"><%= @service.user.fullname %></span>
+							</li>
+						</ul>
+					</div>
+				</div>
+
+        <hr>
+
+			</div>
+
+			<div class="col-xs-12 actions">
+				<h5 class="text-center hidden-sm hidden-md hidden-lg">
+					<i class="fa fa-book" aria-hidden="true"></i> Book Us
+				</h5>
+				<%= render 'bookings/form' %>
+
+			</div>
+		</div>
+	</div>
+</section>

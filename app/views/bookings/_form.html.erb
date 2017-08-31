@@ -1,0 +1,13 @@
+<%= form_for([@service, @service.bookings.new]) do |f| %>
+  <%= f.text_field :booking_date, placehoder: "Enter the quantity you need", class:"form-group form-control" %>
+  <%= f.text_field :offer, placehoder: "Enter how much you are paying", class:"form-group form-control" %>
+  <%= f.submit "Book", class: "btn btn-primary btn-block" %>
+
+<% end %>
+<script>
+  $(function(){
+    $('#booking_booking_date').datepicker({
+      dateFormat: 'dd-mm-yy'
+    });
+  });
+</script>

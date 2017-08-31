@@ -1,0 +1,29 @@
+<section>
+  <div class="row">
+    <div class="col-md-3">
+      <%= render 'services/shared/service_menu' %>
+    </div>
+    <div class="col-md-9">
+
+        <%= form_for @service do |f| %>
+              <p class="profileIntro paraMargin">Tell us what your business or service is. Remember that the more details you provide the better your chances of people finding you and hiring your service.</p>
+              <div class="row">
+                <div class="form-group col-sm-12">
+                  <%= f.text_field :title, :maxlength => 50, placeholder: "Enter the name of your business", required: true, class: "form-control" %>
+                </div>
+
+                <div class="form-group col-sm-12">
+                  <%= f.text_field :description, rows: 5, :maxlength => 500, placeholder: "Describe your business to the Konfam community", required: true, class: "form-control" %>
+                </div>
+
+                <div class="text-center actions">
+                  <%= button_tag type: 'submit', class: "btn btn-primary-alt btn-fully-round" do %>
+                     <i class="fa fa-save"></i>
+                  <% end %>
+                </div>
+              </div>
+        <% end %>
+
+    </div>
+  </div>
+</section>

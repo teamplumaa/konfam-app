@@ -1,0 +1,32 @@
+<section>
+  <div class="row">
+    <div class="col-md-3">
+      <%= render 'gigs/shared/gig_menu' %>
+    </div>
+    <div class="col-md-9">
+
+        <%= form_for @gig do |f| %>
+              <p class="profileIntro paraMargin">Tell us about the gig's location, and the date and time you need the gig cpmpleted by..</p>
+              <div class="row">
+                <div class="form-group col-sm-12">
+                  <%= f.text_field :location, :maxlength => 25, placeholder: "Location", required: true, class: "form-control" %>
+                </div>
+
+                <div class="form-group col-sm-12 select-date">
+                  <%= f.date_select :date, {order: [:month, :day, :year], prompt: { day: 'Select day', month: 'Select month', year: 'Select year' }, start_year: Date.today.year, end_year: Date.today.year + 5}, {required: true} %>
+                </div>
+                <div class="form-group col-sm-12">
+                <%= f.time_select :time, { prompt: {hour: 'Choose hour', minute: 'Choose minute'}, minute_step: 15 }, { class: 'form-control' } %>
+                </div>
+
+                <div class="text-center actions">
+                  <%= button_tag type: 'submit', class: "btn btn-primary-alt btn-fully-round" do %>
+                     <i class="fa fa-save"></i>
+                  <% end %>
+                </div>
+              </div>
+        <% end %>
+
+    </div>
+  </div>
+</section>

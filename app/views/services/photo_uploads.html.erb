@@ -1,0 +1,39 @@
+<section>
+  <div class="row">
+    <div class="col-md-3">
+      <%= render 'services/shared/service_menu' %>
+    </div>
+    <div class="col-md-9">
+        <%= form_for @service, url: service_service_photos_path(@service), method: 'post', html: {multipart: true} do |f| %>
+          <div class="dashboardBoxBg mb30 no-border">
+            <div class="profileIntro paraMargin">
+              <p>You must add an image to your item to ensure that it is posted to all potential buyers!</p>
+              <div class="row">
+
+                <div class="form-group col-xs-12">
+                    <div class="imageUploader text-center">
+
+        						<div class="file-upload">
+        							<div class="upload-area">
+                          <%= file_field_tag "images[]", type: :file, multiple: true, class: "text-center" %>
+        							</div>
+        						</div>
+                  </div>
+                </div>
+
+                <div class="text-center actions">
+                  <%= f.submit "Add Photos", class: "btn btn-primary" %>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        <% end %>
+
+        <div class="row" id="service_photos">
+          <%= render 'photos/service_photos_list' %>
+        </div>
+
+    </div>
+  </div>
+</section>

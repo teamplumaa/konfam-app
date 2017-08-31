@@ -1,0 +1,29 @@
+<section>
+  <div class="row">
+    <div class="col-md-3">
+      <%= render 'gigs/shared/gig_menu' %>
+    </div>
+    <div class="col-md-9">
+
+        <%= form_for @gig do |f| %>
+              <p class="profileIntro paraMargin">Tell the Kofam community how many people you need and how much you will be paying each person for the completion of the gig.</p>
+              <div class="row">
+                <div class="form-group col-sm-12">
+                  <%= f.text_field :personnel_count, placeholder: "No. of People You Need", required: true, class: "form-control" %>
+                </div>
+
+                <div class="form-group col-sm-12">
+                  <%= f.text_field :compensation, placeholder: "Compensation per Person", required: true, class: "form-control" %>
+                </div>
+
+                <div class="text-center actions">
+                  <%= button_tag type: 'submit', class: "btn btn-primary-alt btn-fully-round" do %>
+                     <i class="fa fa-save"></i>
+                  <% end %>
+                </div>
+              </div>
+        <% end %>
+
+    </div>
+  </div>
+</section>

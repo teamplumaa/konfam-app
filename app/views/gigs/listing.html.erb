@@ -1,0 +1,36 @@
+<section>
+  <div class="row">
+    <div class="col-md-3">
+      <%= render 'gigs/shared/gig_menu' %>
+    </div>
+    <div class="col-md-9">
+
+      <%= form_for @gig do |f| %>
+          <div class="dashboardPageTitle text-center">
+            <h3 class="text-center">Basic Info</h3>
+          </div>
+          <div class="dashboardBoxBg no-border mb30">
+            <div class="profileIntro paraMargin">
+              <h4>Warning</h4>
+              <p>Please ensure that any gig that you offer is lawful and legitimate. Also note that posting for a gig that you cannot afford is prohibited on Konfam. So think twice before listing any gigs that you cannot afford.</p>
+              <div class="row">
+
+                <div class="form-group col-sm-12 col-xs-12 text-center">
+                  <label for="listingCategory">Category</label>
+                  <%= f.select :category, [["Kids Clothing","Kids Clothing"],["Mens Clothing","Mens Clothing"], ["Womens Clothing","Womens Clothing"], ["Traditional Attire","Traditional Attire"],["Uniforms","Uniforms"], ["Sportswear","Sportswear"]], id: "category_type", prompt: "Select...", class: "contactSelect" %>
+                </div>
+
+                <div class="text-center actions">
+                  <%= button_tag type: 'submit', class: "btn btn-primary-alt btn-fully-round" do %>
+                     <i class="fa fa-save"></i>
+                  <% end %>
+                </div>
+              </div>
+            </div>
+          </div>
+      <% end %>
+    </div>
+  </div>
+
+
+</section>

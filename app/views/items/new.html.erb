@@ -1,0 +1,36 @@
+<section>
+  <%= form_for @item do |f| %>
+      <div class="dashboardPageTitle text-center">
+        <h3 class="text-center">List Your Item</h3>
+      </div>
+      <div class="dashboardBoxBg mb30">
+        <div class="profileIntro paraMargin">
+          <h4>Warning</h4>
+          <p>Please ensure that any item that you are listing for sale is yours. If you are listing an item on behalf of another individual, please ensure that you have the clear permission and consent of the item's owner. Listing of stolen items is prohibited on this site. Fraudulent Activities will be reported to the appropriate authorities.</p>
+          <div class="row">
+            <!-- <div class="form-group col-sm-6 col-xs-12">
+              <label for="listingTitle">Listing Title</label>
+              <input type="text" class="form-control" id="listingTitle" placeholder="Listing Title">
+            </div> -->
+            <div class="form-group col-sm-6 col-xs-12">
+              <label for="listingCategory">Item Category</label>
+              <%= f.select :category_type, [["Kids Clothing","Kids Clothing"],["Mens Clothing","Mens Clothing"], ["Womens Clothing","Womens Clothing"], ["Traditional Attire","Traditional Attire"],["Uniforms","Uniforms"], ["Sportswear","Sportswear"]], id: "category_type", prompt: "Select...", class: "contactSelect" %>
+            </div>
+            <!-- <div class="form-group col-xs-12">
+              <label for="discribeTheListing">Discribe the listing</label>
+              <textarea class="form-control" rows="3" placeholder="Discribe the listing"></textarea>
+            </div> -->
+            <div class="form-group col-sm-6 col-xs-12">
+              <label for="addTags">Item Type</label>
+              <%= f.select :item_type, [["New","New"],["Used","Used"]], id: "item_type", prompt: "Select...", class: "select-drop" %>
+            </div>
+
+            <div class="text-center actions">
+              <%= f.submit "List item", class: "btn btn-primary"%>
+            </div>
+          </div>
+        </div>
+      </div>
+  <% end %>
+
+</section>

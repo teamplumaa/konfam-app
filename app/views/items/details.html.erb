@@ -1,0 +1,29 @@
+<section>
+  <div class="row">
+    <div class="col-md-3">
+      <%= render 'items/shared/item_menu' %>
+    </div>
+    <div class="col-md-9">
+            <%= form_for @item do |f| %>
+              <div class="dashboardBoxBg mb30 no-border">
+                <div class="profileIntro paraMargin">
+                  <p>Tell the Konfam community more about the item. Please note that the more you tell your audience, the more inquiries your item will receive.</p>
+                  <div class="row">
+                    <div class="form-group col-sm-12">
+                      <label for="listingCategory">Summary</label>
+                      <%= f.text_area :summary, rows: 5, :maxlength => 500, placeholder: "Enter the information about this item", required: true, class: "form-control" %>
+                    </div>
+                    <div class="form-group col-sm-12">
+                      <label for="listingCategory">Quantity</label>
+                      <%= f.text_field :quantity, placeholder: "Quantity Available", required: true, class: "form-control" %>
+                    </div>
+                    <div class="text-center actions">
+                      <%= f.submit "Save Details", class: "btn btn-primary"%>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            <% end %>
+    </div>
+  </div>
+</section>

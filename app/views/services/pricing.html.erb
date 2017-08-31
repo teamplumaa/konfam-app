@@ -1,0 +1,29 @@
+<section>
+  <div class="row">
+    <div class="col-md-3">
+      <%= render 'services/shared/service_menu' %>
+    </div>
+    <div class="col-md-9">
+
+          <%= form_for @service do |f| %>
+            <div class="dashboardBoxBg mb30 no-border">
+              <div class="profileIntro paraMargin">
+                <p>Tell the Konfam community how much you charge for your services. Please note that a 20% service fee is charged on all successful sales of the services you list on Konfam.</p>
+                <div class="row">
+                  <div class="form-group col-sm-12">
+                    <label for="listingCategory">Service Price</label>
+                    <%= f.text_field :pricing, placeholder: "e.g. 1000", required: true, class: "form-control" %>
+                  </div>
+                  <div class="text-center actions">
+                    <%= button_tag type: 'submit', class: "btn btn-primary-alt btn-fully-round" do %>
+                       <i class="fa fa-save"></i>
+                    <% end %>
+                  </div>
+                </div>
+              </div>
+            </div>
+          <% end %>
+
+    </div>
+  </div>
+</section>

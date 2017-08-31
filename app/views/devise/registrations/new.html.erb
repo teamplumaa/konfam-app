@@ -1,0 +1,57 @@
+<!-- SIGN UP SECTION -->
+<section class="clearfix signUpSection">
+	<div class="container">
+		<div class="row">
+			<div class="col-xs-12 col-sm-10 col-sm-offset-1">
+				<div class="signUpFormArea">
+					<div class="priceTableTitle">
+						<p>Please fill out the fields below to create your account. We will send your account information to the email address you enter. Your email address and information will NOT be sold or shared with any 3rd party.</p>
+					</div>
+					<div class="signUpForm">
+            <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+              <%= render 'shared/devisemessage' %>
+
+              <div class="formSection">
+								<h3 class="text-center">Contact Information</h3>
+								<div class="row">
+                  <div class="form-group col-sm-6 col-xs-12">
+                    <%= f.text_field :fullname, autofocus: true, placeholder: "Full Name", class: "form-control" %>
+                  </div>
+
+                  <div class="form-group col-sm-6 col-xs-12">
+                    <%= f.email_field :email, autofocus: true, placeholder: "Email", class: "form-control" %>
+                  </div>
+                </div>
+              </div>
+
+              <div class="formSection">
+								<h3 class="text-center">Account Information</h3>
+                <div class="row">
+                  <div class="form-group col-sm-6 col-xs-12">
+                    <% if @minimum_password_length %>
+                    <em>(<%= @minimum_password_length %> characters minimum)</em>
+                    <% end %><br />
+                    <%= f.password_field :password, autocomplete: "off", placeholder: "Password", class: "form-control" %>
+                  </div>
+
+                  <div class="form-group col-sm-6 col-xs-12">
+                    <%= f.label :password_confirmation %><br />
+                    <%= f.password_field :password_confirmation, autocomplete: "off", placeholder: "Confirm Password", class: "form-control" %>
+                  </div>
+                </div>
+              </div>
+
+              <div class="actions">
+                <%= f.submit "Sign up", class: "btn btn-primary pull-left" %>
+              </div>
+            <% end %>
+
+						<hr>
+						<%= link_to "Sign in with Facebook", user_facebook_omniauth_authorize_path, class: "btn btn-primary" %>
+
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
